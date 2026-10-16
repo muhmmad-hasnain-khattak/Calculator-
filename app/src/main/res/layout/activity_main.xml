@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0B0F19"
+    android:padding="12dp"
+    tools:context=".MainActivity">
+
+    <!-- Top Toolbar / Options -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/btnHistory"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:text="History"
+            android:textColor="#38BDF8"
+            android:textSize="12sp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingHorizontal="10dp"
+            app:strokeColor="#334155" />
+
+        <Button
+            android:id="@+id/btnExpTools"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:text="EXP"
+            android:textColor="#38BDF8"
+            android:textSize="12sp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_marginStart="8dp"
+            android:paddingHorizontal="10dp"
+            app:strokeColor="#334155" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvMemoryIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M: 0"
+            android:textColor="#94A3B8"
+            android:textSize="12sp"
+            android:paddingEnd="12dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnDegRad"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:text="DEG"
+            android:textColor="#38BDF8"
+            android:textSize="12sp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingHorizontal="10dp"
+            app:strokeColor="#334155" />
+
+    </LinearLayout>
+
+    <!-- Calculator Display Screen -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:orientation="vertical"
+        android:gravity="end|bottom"
+        android:background="#111827"
+        android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="6dp">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <TextView
+                android:id="@+id/tvExpression"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#94A3B8"
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:gravity="end" />
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#F8FAFC"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:gravity="end" />
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <!-- Professional Scientific Keypad Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.0"
+        android:columnCount="5"
+        android:rowCount="9"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false">
+
+        <!-- Row 1: Memory Operations -->
+        <Button android:id="@+id/btnMC" style="@style/CalcSciButtonStyle" android:text="MC" />
+        <Button android:id="@+id/btnMR" style="@style/CalcSciButtonStyle" android:text="MR" />
+        <Button android:id="@+id/btnMPlus" style="@style/CalcSciButtonStyle" android:text="M+" />
+        <Button android:id="@+id/btnMMinus" style="@style/CalcSciButtonStyle" android:text="M-" />
+        <Button android:id="@+id/btnMS" style="@style/CalcSciButtonStyle" android:text="MS" />
+
+        <!-- Row 2: Advanced Powers & Exponents -->
+        <Button android:id="@+id/btnSqr" style="@style/CalcSciButtonStyle" android:text="x²" />
+        <Button android:id="@+id/btnCube" style="@style/CalcSciButtonStyle" android:text="x³" />
+        <Button android:id="@+id/btnPower" style="@style/CalcSciButtonStyle" android:text="^" />
+        <Button android:id="@+id/btnInv" style="@style/CalcSciButtonStyle" android:text="1/x" />
+        <Button android:id="@+id/btnExp" style="@style/CalcSciButtonStyle" android:text="e^x" />
+
+        <!-- Row 3: Trigonometry -->
+        <Button android:id="@+id/btnSin" style="@style/CalcSciButtonStyle" android:text="sin" />
+        <Button android:id="@+id/btnCos" style="@style/CalcSciButtonStyle" android:text="cos" />
+        <Button android:id="@+id/btnTan" style="@style/CalcSciButtonStyle" android:text="tan" />
+        <Button android:id="@+id/btnLog" style="@style/CalcSciButtonStyle" android:text="log" />
+        <Button android:id="@+id/btnLn" style="@style/CalcSciButtonStyle" android:text="ln" />
+
+        <!-- Row 4: Roots, Constants & Modulo -->
+        <Button android:id="@+id/btnSqrt" style="@style/CalcSciButtonStyle" android:text="√" />
+        <Button android:id="@+id/btnCbrt" style="@style/CalcSciButtonStyle" android:text="∛" />
+        <Button android:id="@+id/btnPi" style="@style/CalcSciButtonStyle" android:text="π" />
+        <Button android:id="@+id/btnE" style="@style/CalcSciButtonStyle" android:text="e" />
+        <Button android:id="@+id/btnMod" style="@style/CalcSciButtonStyle" android:text="mod" />
+
+        <!-- Row 5: Brackets, Factorial, Abs, Ans -->
+        <Button android:id="@+id/btnOpenBracket" style="@style/CalcSciButtonStyle" android:text="(" />
+        <Button android:id="@+id/btnCloseBracket" style="@style/CalcSciButtonStyle" android:text=")" />
+        <Button android:id="@+id/btnFact" style="@style/CalcSciButtonStyle" android:text="!" />
+        <Button android:id="@+id/btnAbs" style="@style/CalcSciButtonStyle" android:text="abs" />
+        <Button android:id="@+id/btnAns" style="@style/CalcSciButtonStyle" android:text="Ans" />
+
+        <!-- Row 6: Clear, Backspace, Operations -->
+        <Button android:id="@+id/btnClear" style="@style/CalcActionButtonStyle" android:text="AC" />
+        <Button android:id="@+id/btnBackspace" style="@style/CalcActionButtonStyle" android:text="⌫" />
+        <Button android:id="@+id/btnPercent" style="@style/CalcOpButtonStyle" android:text="%" />
+        <Button android:id="@+id/btnDivide" style="@style/CalcOpButtonStyle" android:text="÷" />
+        <Button android:id="@+id/btnMultiply" style="@style/CalcOpButtonStyle" android:text="×" />
+
+        <!-- Row 7: Numbers 7, 8, 9, Minus, Plus -->
+        <Button android:id="@+id/btn7" style="@style/CalcNumButtonStyle" android:text="7" />
+        <Button android:id="@+id/btn8" style="@style/CalcNumButtonStyle" android:text="8" />
+        <Button android:id="@+id/btn9" style="@style/CalcNumButtonStyle" android:text="9" />
+        <Button android:id="@+id/btnMinus" style="@style/CalcOpButtonStyle" android:text="−" />
+        <Button android:id="@+id/btnPlus" style="@style/CalcOpButtonStyle" android:text="+" />
+
+        <!-- Row 8: Numbers 4, 5, 6 -->
+        <Button android:id="@+id/btn4" style="@style/CalcNumButtonStyle" android:text="4" />
+        <Button android:id="@+id/btn5" style="@style/CalcNumButtonStyle" android:text="5" />
+        <Button android:id="@+id/btn6" style="@style/CalcNumButtonStyle" android:text="6" />
+        <Button android:id="@+id/btn0" style="@style/CalcNumButtonStyle" android:text="0" />
+        <Button android:id="@+id/btnDot" style="@style/CalcNumButtonStyle" android:text="." />
+
+        <!-- Row 9: Numbers 1, 2, 3 and Equals -->
+        <Button android:id="@+id/btn1" style="@style/CalcNumButtonStyle" android:text="1" />
+        <Button android:id="@+id/btn2" style="@style/CalcNumButtonStyle" android:text="2" />
+        <Button android:id="@+id/btn3" style="@style/CalcNumButtonStyle" android:text="3" />
+        <Button android:id="@+id/btnEquals" style="@style/CalcEqualsButtonStyle" android:layout_columnSpan="2" android:text="=" />
+
+    </GridLayout>
+
+</LinearLayout>
